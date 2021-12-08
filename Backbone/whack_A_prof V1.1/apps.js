@@ -1,14 +1,14 @@
-// To Selects all the css selectors using querySelector() method 
+// To Selects all the css selectors using querySelector() method
 const score = document.querySelector(".score span");
 const missed = document.querySelector(".missed span");
 //const comt = document.querySelector(".holescont");
-// querySelectorAll() method returns all the holes with class"hole"  
+// querySelectorAll() method returns all the holes with class"hole"
 const holes = document.querySelectorAll(".hole");
 const playBtn = document.querySelector(".play");
 const pauseBtn = document.querySelector(".pause");
 const exitBtn = document.querySelector(".stop");
 const cursor = document.querySelector(".cursor img");
-// Createheadshot html audio object w/out HTML tag in html page 
+// Createheadshot html audio object w/out HTML tag in html page
 var headshotaudio = new Audio('graphics_audio/assets_Dart.mp3');
 // Create background html audio object w/out HTML tag in home page
 var backgroundmusic = new Audio('graphics_audio/backgroundSound1.mp3');
@@ -40,9 +40,9 @@ playBtn.addEventListener("click", () => {
         });
     });
     // After play button is clicked
-    playBtn.disabled = true;    // Disable play btn,to prevent user from clicking play button twice 
-    exitBtn.disabled = false;   // Enable Exist button 
-    pauseBtn.disabled = false;  // Enable Pause button 
+    playBtn.disabled = true;    // Disable play btn,to prevent user from clicking play button twice
+    exitBtn.disabled = false;   // Enable Exist button
+    pauseBtn.disabled = false;  // Enable Pause button
     backgroundmusic.currentTime = 0;    // Reset background music to begining that is from 0
     backgroundmusic.play(); // Play background music
     let hole;
@@ -68,14 +68,14 @@ playBtn.addEventListener("click", () => {
             GameModeOnOff = false;
             // clear the startGame interval
             clearInterval(startGame);
-            backgroundmusic.pause();    // pause the background music 
+            backgroundmusic.pause();    // pause the background music
             // Reset the background music time to 0, to play from begining when paused
             backgroundmusic.currentTime = 0;
             alert(`GAME OVER!\nYour Score: ${result}\nMissed moles: ${missedscore}`);
             playBtn.disabled = false;   // enabled the play button
             exitBtn.disabled = true;    // disable the exit button
             pauseBtn.disabled = true;   // disable the pause button
-            missedscore = 0 //set missed score to 0
+            missedscore = 0; //set missed score to 0
             count = 0;  // reset count to 0
             result = 0; // reset score to 0
             score.innerText = result;   //display score in the html score tag
@@ -92,13 +92,13 @@ playBtn.addEventListener("click", () => {
         // If turnOnOff is true and user hit the target
         // Then increment the score by 1
         if (GameModeOnOff === true && e.target == hole) {
-            backgroundmusic.pause();    //Pause the background music 
+            backgroundmusic.pause();    //Pause the background music
             headshotaudio.pause();  //Pause the headshot music
             headshotaudio.currentTime = 0;  //Reset headshot audio ffile to 0
-            headshotaudio.play();   //Play the headshot sound 
-            result++    //increment the result
+            headshotaudio.play();   //Play the headshot sound
+            result++;    //increment the result
             score.innerText = result;   //Display the score simultaneously at score tag
-            backgroundmusic.play(); // Continue play the background music 
+            backgroundmusic.play(); // Continue play the background music
         }
     });
     // Add eventlistener to Exit button, onclick
@@ -106,7 +106,7 @@ playBtn.addEventListener("click", () => {
         // clears the interval set By startgame setinterval()
         clearInterval(startGame);
         GameModeOnOff = false;  //Set turnonOff to false to prevent the score increment if user hit desk
-        backgroundmusic.pause();    //pasue bg music 
+        backgroundmusic.pause();    //pasue bg music
         backgroundmusic.currentTime = 0;    //reset bg music to 0
         playBtn.disabled = false;   // Enable Play button
         exitBtn.disabled = true;    //Disable Exit button
@@ -131,8 +131,3 @@ playBtn.addEventListener("click", () => {
     });
 
 });
-
-
-
-
-
